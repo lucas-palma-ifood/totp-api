@@ -3,3 +3,28 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  p Questions? Contact MovilePay Security Team
+
+  hr
+  h2 Supported requests
+
+  h3 Get a random seed
+  p GET /seed
+
+  h3 Get actual token from a seed
+  p GET /token/$seed_value
+
+  h3 Check if a token is valid
+  p POST /token
+  p JSON Parameters:
+  p { 
+  p "offset": integer (how many tokens to check after and before),
+  p "token": string (with a 6 digit number)
+  p "seed": string (16 characters containing the seed, in base32)
+  p }
+
+  p Example:
+  p {"offset":20,"token":"243697", "seed":"BRZSEZSCCVQS6KIP"}
+  p It'll use the BRZSEZSCCVQS6KIP with actual time and check if
+  p 243697 is the actual token, or one of the 20 tokens before it,
+  p or one of the 20 tokens after it.

@@ -2,10 +2,12 @@ var express = require('express');
 var totp = require('otplib').totp;
 var router = express.Router();
 
+// Get the actual token from a given seed
 router.get('/:seed', function(req, res, next) {
-  res.send(totp.generate(req.params.seed));
+  res.json(totp.generate(req.params.seed));
 });
 
+// Validate a token from a given seed, within a defined offset
 router.post('/', function(req, res, next) {
   var offset = req.body.offset;
   var token = req.body.token;
@@ -15,10 +17,10 @@ router.post('/', function(req, res, next) {
     totp.options = { window: offset };
   } else {
     res.status(400);
-    res.send('Offset value (' + offset + ') is invalid');
+    res.json('Offset value (' + offset + ') is invalid');
   }
 
-  res.send(totp.check(token, seed));
+  res.json(totp.check(token, seed));
 });
 
 module.exports = router;

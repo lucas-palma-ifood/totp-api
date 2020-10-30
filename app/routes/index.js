@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+// index homepage
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Simple TOTP' });
+  res.render('index', { title: 'TOTP Validator' });
 });
 
 module.exports = router;
