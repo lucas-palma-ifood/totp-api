@@ -4,6 +4,7 @@ Simple validator to check a TOTP implementation.
 ## How to run
 ```
 cd app
+npm install
 npm start
 ```
 It'll open on port 3000 (aka `localhost:3000` as endpoint).
