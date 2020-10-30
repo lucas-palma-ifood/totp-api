@@ -3,7 +3,6 @@ var totp = require('otplib').totp;
 var router = express.Router();
 
 router.get('/:seed', function(req, res, next) {
-  totp.resetOptions();
   res.send(totp.generate(req.params.seed));
 });
 
