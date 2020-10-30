@@ -41,6 +41,8 @@ Example usage:
 ```
 It'll use the **BRZSEZSCCVQS6KIP** with actual time and check if **243697** is the actual token, or one of the **20** tokens _before_ it, or one of the **20** tokens _after_ it.
 
+> **offset** is a optional parameter. If it isn't set, 0 is used by default.
+
 ## Credits
 TOTP Validator was made thanks to:
 - ExpressJS (https://expressjs.com/)

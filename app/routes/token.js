@@ -16,6 +16,11 @@ router.post('/', function(req, res, next) {
   var token = req.body.token;
   var seed = req.body.seed;
 
+  // Offset default value
+  if(offset == undefined) {
+    offset = 0
+  }
+
   // Check if given offset is NaN or negative
   if (Number.isInteger(offset) && offset >= 0) {
     totp.options = { window: offset };
