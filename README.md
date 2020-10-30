@@ -1,4 +1,4 @@
-# totp-api
+# TOTP Validator
 Simple validator to check a TOTP implementation.
 
 ## How to run
@@ -9,6 +9,10 @@ npm start
 It'll open on port 3000 (aka `localhost:3000` as endpoint).
 
 ## Supported requests
+### Get actual time
+#### ```GET /time```
+Returns what time is it now on the server, on `YYYY-MM-DD HH:MM:SS` format.
+
 ### Get a random seed
 #### ```GET /seed```
 Returns a random generated valid seed, for later usage with the TOTP algorithm, on a 16 characters string in BASE32 format.
@@ -36,3 +40,8 @@ Example usage:
 }
 ```
 It'll use the **BRZSEZSCCVQS6KIP** with actual time and check if **243697** is the actual token, or one of the **20** tokens _before_ it, or one of the **20** tokens _after_ it.
+
+## Credits
+TOTP Validator was made thanks to:
+- ExpressJS (https://expressjs.com/)
+- NodeJS otplib (https://otplib.yeojz.dev/) 

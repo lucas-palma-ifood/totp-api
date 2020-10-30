@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var seedRouter = require('./routes/seed');
+var timeRouter = require('./routes/time');
 var tokenRouter = require('./routes/token');
 
 var app = express();
@@ -25,7 +26,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', indexRouter);
 app.use('/seed', seedRouter);
+app.use('/time', timeRouter);
 app.use('/token', tokenRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
