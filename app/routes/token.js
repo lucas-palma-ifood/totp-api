@@ -1,9 +1,9 @@
 var express = require('express');
+var totp = require('otplib').totp;
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/:seed', function(req, res, next) {
+  res.send(totp.generate(req.params.seed));
 });
 
 module.exports = router;
