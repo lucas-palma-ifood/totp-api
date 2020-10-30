@@ -4,7 +4,10 @@ var router = express.Router();
 
 // Get the actual token from a given seed
 router.get('/:seed', function(req, res, next) {
-  res.json(totp.generate(req.params.seed));
+  let tokenFromSeed = {
+    token: totp.generate(req.params.seed)
+  }
+  res.json(tokenFromSeed);
 });
 
 // Validate a token from a given seed, within a defined offset
@@ -13,14 +16,23 @@ router.post('/', function(req, res, next) {
   var token = req.body.token;
   var seed = req.body.seed;
 
+  // Check if given offset is NaN or negative
   if (Number.isInteger(offset) && offset >= 0) {
     totp.options = { window: offset };
   } else {
     res.status(400);
-    res.json('Offset value (' + offset + ') is invalid');
+
+    let erroMessage = { 
+      error: 'Offset value (' + offset + ') is invalid'
+    }
+
+    res.json(erroMessage);
   }
 
-  res.json(totp.check(token, seed));
+  let checkToken = {
+    isTokenValid: totp.check(token, seed)
+  }
+  res.json(checkToken);
 });
 
 module.exports = router;

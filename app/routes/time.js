@@ -12,9 +12,14 @@ let seconds = date_ob.getSeconds();
 
 var actualDate = year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
 
+
+
 // Return a seed
 router.get('/', function(req, res, next) {
-  res.json(actualDate);
+  let actualTime = {
+    time: actualDate
+  }
+  res.json(actualTime);
 });
 
 module.exports = router;

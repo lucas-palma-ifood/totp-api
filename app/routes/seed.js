@@ -4,7 +4,10 @@ var router = express.Router();
 
 // Return a seed
 router.get('/', function(req, res, next) {
-  res.json(authenticator.generateSecret());
+  let generatedSeed = {
+    seed: authenticator.generateSecret()
+  }
+  res.json(generatedSeed);
 });
 
 module.exports = router;
