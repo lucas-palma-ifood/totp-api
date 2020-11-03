@@ -14,6 +14,16 @@ block content
   h3 Get a random seed
   p GET /seed
 
+  h3 Get a random seed encrypted by a RSA Public Key
+  p POST /seed
+  p JSON Parameters:
+  p { 
+  p "pubkey": string (RSA Public Key, with inline headers and \n included)
+  p }
+
+  p Example:
+  p {"pubkey":"-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsU7wooQC+NGMRLZnhKyw\nYNktdU72MG7focuLYuHDjqRWfdwTfqQ5ysT3Dv0XhnrPOOH80X38WbN6AwK9WhXz\nhi+UMPRF3AB+DyujRagvwUarfxg2bnFroUN4lYY9AlmSxY578xoyv1HbmNwwoUXf\nkc2Wzdbgj6ZOX3oomtWU74VeujyL5I49GRV45ddXoKIjAsF/aVmLxpMiz1MHv7Dm\nFlF1Ou2yUzL4tIjzdJnr14tlO5H5tlPSLQyWp199GcQi+Zsu3N2iYjiJ00QwTy3e\nT/f9sbTJGK1xlQT9nYZquN3XH5NVOChdZer/jkVKLy+YMQMuBSIVAHmczTuz7lRe\nMwIDAQAB\n-----END PUBLIC KEY-----"}
+
   h3 Get actual token from a seed
   p GET /token/$seed_value
 
