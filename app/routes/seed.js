@@ -18,7 +18,8 @@ router.post('/', function(req, res, next) {
   var encryptedSeed = crypto.publicEncrypt(pubkey, Buffer.from(randomSeed));
 
   let generatedSeed = {
-    seed: encryptedSeed.toString("base64")
+    plaintextSeed: randomSeed,
+    encryptedSeed: encryptedSeed.toString("base64")
   }
   res.json(generatedSeed);
 });
